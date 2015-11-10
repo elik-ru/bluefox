@@ -505,7 +505,7 @@ first_names=%w(Алексей
 
 
 abilities=Ability.all
-0.times do |n|
+1000.times do |n|
   name="#{last_names[rand(last_names.size)]} #{first_names[rand(first_names.size)]} #{first_names[rand(first_names.size)]}"
   contact_info= ( rand(2)==1 ? Faker::PhoneNumber.phone_number.gsub(/[^\d]/,"")  : Faker::Internet.email)  
   ab=[]

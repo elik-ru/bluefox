@@ -39,5 +39,10 @@ RSpec.describe Vacancy, :type => :model do
     expect(vacancy.added_at).to eq(vacancy.created_at)
   end
 
-
+	it "should select active" do
+    Vacancy.create(title: "Тестовая вакансия", added_at: Time.now, expires_at: 1.month.from_now, salary: 1000000, contact_info: "ООО Рога и копыта")
+    Vacancy.create(title: "Тестовая вакансия", added_at: Time.now, expires_at: 1.month.ago, salary: 1000000, contact_info: "ООО Рога и копыта")
+		expect(Vacancy.active.count).to eq(1)
+	end
+ 
 end

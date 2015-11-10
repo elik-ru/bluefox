@@ -66,6 +66,13 @@ RSpec.describe Candidate, :type => :model do
     candidate=Candidate.create(name: "Пупкин Иван Васильевич", is_active: true, salary: 1000000, contact_info: "test@test.ru")
     expect(candidate).to be_valid
   end
+	
+	it "should select active" do
+    Candidate.create(name: "Пупкин Иван Васильевич", is_active: true, salary: 1000000, contact_info: "test@test.ru")
+    Candidate.create(name: "Пупкин Иван Васильевич", is_active: false, salary: 1000000, contact_info: "test@test.ru")
+		expect(Candidate.active.count).to eq(1)
+
+	end
 
 
 end

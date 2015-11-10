@@ -56,5 +56,8 @@ end
 
 gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails'
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'bootstrap-sass', '3.2.0.2'
 gem 'faker'
+gem 'jquery-turbolinks'
+gem 'kaminari'
+gem 'russian'
