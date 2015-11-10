@@ -6,7 +6,7 @@
 				Кандидаты
 			</div>
 			<div class="panel-body">
-				<%= link_to '' do %>
+				<%= link_to [:candidates] do %>
 					<%= @candidates_count %> <%= Russian.p(@candidates_count,"кандидат","кандидата","кандидатов") %>
 				<% end %> <br/>
 				(<%= @candidates_active_count %> в активном поиске)<br/>
@@ -23,7 +23,7 @@
 				Вакансии
 			</div>
 			<div class="panel-body">
-				<%= link_to '' do %>
+				<%= link_to [:vacancies] do %>
 					<%= @vacancies_count %> <%= Russian.p(@vacancies_count,"вакансия","вакансий","вакансий") %>
 				<% end %> <br/>
 				(<%= @vacancies_active_count %> <%= Russian.p(@vacancies_active_count,"актуальная","актуальных","актуальных") %>)<br/>
