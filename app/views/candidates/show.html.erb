@@ -1,0 +1,32 @@
+<h2>Кандидат <%= @candidate.name %></h2>
+<%= @candidate.is_active ? "в поиске работы" : "не ищет работу" %><br/>
+Контакты: <%= @candidate.contact_info %><br/>
+Навыки: <%= @abilities.map{|a| a.name}.join(", ") %><br/>
+<div class="row">
+	<div class="col-sm-6">
+		<h5>Подходящие вакансии</h5>
+		<ol>
+		<% @good_vacancies.each do |vacancy| %>
+			<li><%= link_to vacancy.title, vacancy %> (<%= vacancy.salary %> руб)<br/>
+			<% vacancy.abilities.uniq.sort_by(&:name).each do |ability| %>
+				<span <%= "class=text-danger" unless @abilities.include? ability %> ><%= ability.name %><span>,
+			<% end %>
+			</li>
+		<% end %>
+		</ol>
+	</div>
+	<div class="col-sm-6">
+		<h5>Менее подходящие вакансии</h5>
+		<ol>
+		<% @not_so_good_vacancies.each do |vacancy| %>
+			<li><%= link_to vacancy.title, vacancy %> (<%= vacancy.salary %> руб)<br/>
+			Требования: 
+			<% vacancy.abilities.uniq.sort_by(&:name).each do |ability| %>
+				<span <%= "class=text-danger" unless @abilities.include? ability %> ><%= ability.name %></span>,
+			<% end %>
+			
+			</li>
+		<% end %>
+		</ol>
+	</div>
+</div>
