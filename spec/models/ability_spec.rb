@@ -12,4 +12,14 @@ RSpec.describe Ability, :type => :model do
     expect(ability).to be_valid
   end
   
+  it "should validate uniqueness of name" do
+
+    ability=Ability.create(name: "Some Ability")
+    expect(ability).to be_valid
+    ability=Ability.create(name: "Some Ability")
+    expect(ability).to be_invalid
+
+  end
+  
+  
 end
