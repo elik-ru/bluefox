@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110112638) do
+ActiveRecord::Schema.define(version: 20151110122509) do
 
   create_table "abilities", force: :cascade do |t|
     t.string   "name"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20151110112638) do
   create_table "candidates", force: :cascade do |t|
     t.string   "name"
     t.string   "contact_info"
-    t.boolean  "title"
+    t.boolean  "is_active"
     t.integer  "salary"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

@@ -6,5 +6,7 @@ class Ability < ActiveRecord::Base
   has_many :vacancy_abilities
   has_many :vacancies, through: :vacancy_abilities
 
+  validates_presence_of :name
+
   
 end
