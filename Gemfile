@@ -53,3 +53,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
+
+gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
+gem 'bootstrap-sass', '~> 2.3.1.0'
