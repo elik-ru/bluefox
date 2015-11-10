@@ -198,7 +198,7 @@ Weak\ Armor
 White\ Smoke
 Wonder\ Guard
 Wonder\ Skin
-Zen\ Mode)# .each{|a| Ability.create(name: a) }
+Zen\ Mode).each{|a| Ability.create(name: a) }
 
 last_names=%w(Гущин
 Колесников
