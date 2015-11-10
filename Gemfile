@@ -57,3 +57,4 @@ end
 gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails'
 gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'faker'
