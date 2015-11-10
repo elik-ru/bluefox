@@ -1,0 +1,12 @@
+<%= paginator.render do -%>
+<div class="paginator" id="paginator_example"  style="width: 85%; float:left; padding-left: 20px"></div>
+<script type="text/javascript">
+	paginator_example = new Paginator(
+		"paginator_example", // id контейнера, куда ляжет пагинатор
+		<%= total_pages %>, // общее число страниц
+		20, // число страниц, видимых одновременно
+		<%= current_page %>, // номер текущей страницы/
+		"<%= first_page_tag %>page=" 
+	);
+</script>
+<% end -%>

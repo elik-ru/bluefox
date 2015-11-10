@@ -1,0 +1,25 @@
+<h2>Кандидаты</h2>
+<p>
+<%= link_to [:new,:candidate], class: "btn btn-primary" do %>
+	<%= gi 'plus' %> Добавить
+<% end %>
+</p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>ФИО</th>
+			<th>Контакты</th>
+			<th>Пожелания по зарплате</th>
+			
+		</tr>
+	</thead>
+	<% @candidates.each do |candidate| %>
+	<tr>
+		<td><%= link_to candidate.name,candidate %></td>
+		<td><%= candidate.contact_info %></td>
+		<td><%= candidate.salary %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= paginate3000 @candidates %>
