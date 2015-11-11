@@ -10,7 +10,7 @@ class VacanciesController < ApplicationController
   end
   
 	def index
-		@vacancies=Vacancy.all.order(:expires_at).reverse_order.page(params[:page]).per(100)
+		@vacancies=Vacancy.all.order(:expires_at).includes(:abilities).reverse_order.page(params[:page]).per(100)
 	end
 	
 	def show
