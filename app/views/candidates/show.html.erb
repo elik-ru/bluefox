@@ -3,33 +3,40 @@
 Контакты: <%= @candidate.contact_info %><br/>
 Навыки: <%= @abilities.map{|a| a.name}.join(", ") %><br/>
 
-<%= link_to "Редактировать кандидата", [:edit,@vacancy], class: "btn btn-primary" %>
+<%= link_to "Редактировать кандидата", [:edit,@candidate], class: "btn btn-primary" %>
+
+<% need_title=true %>
+<% can_change=false %>
 
 <div class="row">
-	<div class="col-sm-6">
-		<h5>Подходящие вакансии</h5>
-		<ol>
-		<% @good_vacancies.each do |vacancy| %>
+	<div class="col-xs-12">
+		<% @vacancies.each do |vacancy| %>
+      <% if need_title %>
+        <% if (vacancy.abilities & @abilities).size == vacancy.abilities.size %>
+      		<h3>Подходящие вакансии</h3>
+          <% can_change=true %>
+        <% else %>
+      		<h3>Частично подходящие вакансии</h3>          
+          <% can_change=false %>
+        <% end %>
+        <% need_title=false %>
+      <% end %>
+      
+      <% if can_change %>
+        <% if ((vacancy.abilities & @abilities).size != vacancy.abilities.size)  %>
+        		<h3>Частично подходящие вакансии</h3>          
+            <% can_change=false %>
+        <% end %> 
+      <% end %> 
+         
+
 			<li><%= link_to vacancy.title, vacancy %> (<%= vacancy.salary %> руб)<br/>
-			<% vacancy.abilities.uniq.sort_by(&:name).each do |ability| %>
-				<span <%= "class=text-danger" unless @abilities.include? ability %> ><%= ability.name %><span>,
-			<% end %>
+        Навыки: 
+  			<%= vacancy.abilities.sort_by(&:name).map{ |ability|
+  				"<span #{"class=text-danger" unless @abilities.include? ability}>#{ability.name}</span>"}.join(", ").html_safe %>
 			</li>
 		<% end %>
-		</ol>
-	</div>
-	<div class="col-sm-6">
-		<h5>Менее подходящие вакансии</h5>
-		<ol>
-		<% @not_so_good_vacancies.each do |vacancy| %>
-			<li><%= link_to vacancy.title, vacancy %> (<%= vacancy.salary %> руб)<br/>
-			Требования: 
-			<% vacancy.abilities.uniq.sort_by(&:name).each do |ability| %>
-				<span <%= "class=text-danger" unless @abilities.include? ability %> ><%= ability.name %></span>,
-			<% end %>
-			
-			</li>
-		<% end %>
-		</ol>
 	</div>
 </div>
+
+<%= paginate3000 @vacancies %>
