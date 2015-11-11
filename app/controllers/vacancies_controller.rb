@@ -50,7 +50,7 @@ class VacanciesController < ApplicationController
   end
 
   def safe_params
-    safe=params.require(:vacancy).permit(:name,:contact_info,:salary,:added_at,:expires_at,:ability_names=>[])
+    safe=params.require(:vacancy).permit(:title,:contact_info,:salary,:added_at,:expires_at,:ability_names=>[])
   end
   
 end
