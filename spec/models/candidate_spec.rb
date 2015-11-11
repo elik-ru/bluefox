@@ -36,7 +36,7 @@ RSpec.describe Candidate, :type => :model do
   end
 
   it "should allow phone number in contact_info" do
-    candidate=Candidate.create(contact_info: "+79101234567")
+    candidate=Candidate.create(contact_info: "+7(910)123-45-67")
     expect(candidate.errors[:contact_info].size).to eq(0)    
   end
   

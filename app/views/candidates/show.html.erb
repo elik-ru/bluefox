@@ -1,5 +1,5 @@
 <h2>Кандидат <%= @candidate.name %></h2>
-<%= @candidate.is_active ? "в поиске работы" : "не ищет работу" %><br/>
+<%= @candidate.is_active ? "в поиске работы" : "не ищет работу" %> (желаемая зарплата: <%= @candidate.salary %>)<br/>
 Контакты: <%= @candidate.contact_info %><br/>
 Навыки: <%= @abilities.map{|a| a.name}.join(", ") %><br/>
 
