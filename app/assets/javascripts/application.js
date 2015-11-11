@@ -12,10 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require turbolinks
 //= require bootstrap
 //= require angular
 //= require angular-ui-bootstrap
 //= require twitter/typeahead
 //= require bootstrap-tagsinput
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales/ru-RU
 //= require_tree .
+
+
+$(function(){
+  $('.datepicker').datepicker({ dateFormat: "dd.mm.yy" ,firstDay: 1});
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+})

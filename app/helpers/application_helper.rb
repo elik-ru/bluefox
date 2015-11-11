@@ -79,7 +79,7 @@ module ApplicationHelper
   
 	def bform_date title, object, field , form, options ={}
 		bform_template title , '' , object.errors[field].any? do
-			form.text_field(field, options.reverse_merge(:class => "form-control", :value => (object[field].strftime("%d.%m.%Y") rescue ""))) + f_errors(object, field)
+			form.text_field(field, options.reverse_merge(:class => "form-control datepicker", :value => (object[field].strftime("%d.%m.%Y") rescue ""))) + f_errors(object, field)
 		end
 	end
   

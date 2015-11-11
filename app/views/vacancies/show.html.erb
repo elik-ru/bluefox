@@ -1,13 +1,15 @@
-<h2>Кандидат <%= @candidate.name %></h2>
-<%= @candidate.is_active ? "в поиске работы" : "не ищет работу" %><br/>
-Контакты: <%= @candidate.contact_info %><br/>
-Навыки: <%= @abilities.map{|a| a.name}.join(", ") %><br/>
+<pre>
+Должность: <%= @vacancy.title %>
+Зарплата: <%= @vacancy.salary %><br/>
+Требования:  <%= @abilities.map{|a| a.name}.join(", ") %><br/>
+<%= raw @vacancy.contact_info %><br/>
+</pre>
 
-<%= link_to "Редактировать кандидата", [:edit,@vacancy], class: "btn btn-primary" %>
+<%= link_to "Редактировать вакансию", [:edit,@vacancy], class: "btn btn-primary" %>
 
 <div class="row">
 	<div class="col-sm-6">
-		<h5>Подходящие вакансии</h5>
+		<h5>Подходящие кандидаты</h5>
 		<ol>
 		<% @good_vacancies.each do |vacancy| %>
 			<li><%= link_to vacancy.title, vacancy %> (<%= vacancy.salary %> руб)<br/>
@@ -19,7 +21,7 @@
 		</ol>
 	</div>
 	<div class="col-sm-6">
-		<h5>Менее подходящие вакансии</h5>
+		<h5>Менее подходящие кандидаты</h5>
 		<ol>
 		<% @not_so_good_vacancies.each do |vacancy| %>
 			<li><%= link_to vacancy.title, vacancy %> (<%= vacancy.salary %> руб)<br/>
@@ -33,3 +35,4 @@
 		</ol>
 	</div>
 </div>
+

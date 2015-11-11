@@ -1,0 +1,31 @@
+<h2>Вакансии</h2>
+<p>
+<%= link_to [:new,:vacancy], class: "btn btn-primary" do %>
+	<%= gi 'plus' %> Добавить
+<% end %>
+</p>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Вакансия</th>
+			<th>Требования</th>
+			<th>Зарплата</th>
+      <th></th>
+		</tr>
+	</thead>
+	<% @vacancies.each do |vacancy| %>
+	<tr>
+		<td>
+      <%= link_to vacancy.title,vacancy %><br/>
+    </td>
+		<td><%= vacancy.ability_names %></td>
+		<td><%= vacancy.salary %></td>
+    <td class="nowrap">
+      <%= link_to gi('pencil'), [:edit,vacancy] %>
+      <%= link_to gi('trash'), vacancy, method: "delete", data: {confirm: "Вы уверены, что хотите удалить вакансию #{vacancy.title} ?"} %>
+    </td>
+	</tr>
+	<% end %>
+</table>
+
+<%= paginate3000 @vacancies %>
