@@ -10,6 +10,7 @@
 
 <div class="container">
 <h1>Тестовое задание для Bluefox</h1>
+<h4><%= raw @page_crumbs.map{|c| c==@page_crumbs.last ? raw(c[0]) :  link_to(raw(c[0]), c[1])}.join(" / ") %></h4>
 
 
 <%= yield %>

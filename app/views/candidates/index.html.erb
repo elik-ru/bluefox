@@ -10,7 +10,7 @@
 			<th>ФИО</th>
 			<th>Контакты</th>
 			<th>Пожелания по зарплате</th>
-			
+      <th></th>
 		</tr>
 	</thead>
 	<% @candidates.each do |candidate| %>
@@ -18,6 +18,10 @@
 		<td><%= link_to candidate.name,candidate %></td>
 		<td><%= candidate.contact_info %></td>
 		<td><%= candidate.salary %></td>
+    <td>
+      <%= link_to gi('pencil'), [:edit,candidate] %>
+      <%= link_to gi('trash'), candidate, method: "delete", data: {confirm: "Вы уверены, что хотите удалить кандидата #{candidate.name} ?"} %>
+    </td>
 	</tr>
 	<% end %>
 </table>

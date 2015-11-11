@@ -1,4 +1,25 @@
 module ApplicationHelper
+	def flash_class(level)
+	    case level
+	        when :notice  then "alert alert-dismissable alert-info"
+	        when :success then "alert alert-dismissable alert-success"
+	        when :error   then "alert alert-dismissable alert-danger"
+	        when :alert   then "alert alert-dismissable alert-warning"
+	        when "notice"  then "alert alert-dismissable alert-info"
+	        when "success" then "alert alert-dismissable alert-success"
+	        when "error"   then "alert alert-dismissable alert-danger"
+	        when "alert"   then "alert alert-dismissable alert-warning"            
+	    end
+	end
+	
+	def f_errors resource, field
+		raw resource.errors.messages[field].join("<br>") if resource.errors.messages[field]
+	end
+	
+	def has_errors resource, field
+		"has-error" if resource.errors.messages[field]
+	end
+
 	def bform_template title="", value="", error=false, &block
 		
 		raw '<div class="form-group' + (error ? ' has-error' : '' )+ '">' +
