@@ -2,10 +2,10 @@
 
 To run at localhost:
 
-git clone https://github.com/elik-ru/bluefox
-cd bluefox
-bundle install
-bundle exec rake db:migrate db:seed
-bundle exec rails s
+  git clone https://github.com/elik-ru/bluefox
+  cd bluefox
+  bundle install
+  bundle exec rake db:migrate db:seed
+  bundle exec rails s
 
 Go to http://localhost:3002/
