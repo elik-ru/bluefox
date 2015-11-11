@@ -1,6 +1,6 @@
 set :application, 'bluefox'
 set :repo_url, '/home/rails/git/bluefox/'
-#set :linked_files, %w{config/secrets.yml}
+set :linked_files, %w{config/secrets.yml db/production.sqlite3}
 set :linked_dirs, %w{public/system}
 
 set :stages, [:production]
