@@ -509,9 +509,9 @@ abilities=Ability.all
   name="#{last_names[rand(last_names.size)]} #{first_names[rand(first_names.size)]} #{first_names[rand(first_names.size)]}"
   contact_info= ( rand(2)==1 ? Faker::PhoneNumber.phone_number.gsub(/[^\d]/,"")  : Faker::Internet.email)  
   ab=[]
-  rand(50..100).times{|n| ab.push (abilities[rand(abilities.size)])}
+  rand(60..100).times{|n| ab.push (abilities[rand(abilities.size)])}
   
-  
+  ab.uniq!
   Candidate.create(name: name,
     contact_info: contact_info,
     is_active: rand(2),
@@ -525,8 +525,8 @@ end
 1000.times do |n|
   contact_info= Faker::Lorem.sentence + "\n\nEmail: " + Faker::Internet.email + "\nPhone: " + Faker::PhoneNumber.phone_number + "\n"
   ab=[]
-  rand(10..20).times{|n| ab.push (abilities[rand(abilities.size)])}
-  
+  rand(3..7).times{|n| ab.push (abilities[rand(abilities.size)])}
+  ab.uniq!
   
   Vacancy.create(title: Faker::Hacker.say_something_smart,
     contact_info: contact_info,
