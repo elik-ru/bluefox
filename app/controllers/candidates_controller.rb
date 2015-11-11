@@ -75,7 +75,7 @@ class CandidatesController < ApplicationController
   end
 
   def safe_params
-    params.require(:candidate).permit(:name,:contact_info,:salary,:is_active)
+    safe=params.require(:candidate).permit(:name,:contact_info,:salary,:is_active,:ability_names=>[])
   end
 
 end

@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
 //= require angular
 //= require angular-ui-bootstrap
+//= require twitter/typeahead
+//= require bootstrap-tagsinput
 //= require_tree .

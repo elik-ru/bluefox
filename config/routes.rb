@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
 	resources :candidates
 	resources :vacancies
+  resources :abilities
 	
  end
