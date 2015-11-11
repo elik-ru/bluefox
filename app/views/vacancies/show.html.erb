@@ -1,6 +1,8 @@
 <pre>
 Должность: <%= @vacancy.title %>
 Зарплата: <%= @vacancy.salary %><br/>
+Опубликована: <%= @vacancy.added_at.strftime("%d.%m.%Y") %><br/>
+Действительна до: <%= @vacancy.expires_at.strftime("%d.%m.%Y") %><br/>
 Требования:  <%= @abilities.map{|a| a.name}.join(", ") %><br/>
 <%= raw @vacancy.contact_info %><br/>
 </pre>
