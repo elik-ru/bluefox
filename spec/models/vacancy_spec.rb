@@ -44,5 +44,14 @@ RSpec.describe Vacancy, :type => :model do
     Vacancy.create(title: "Тестовая вакансия", added_at: Time.now, expires_at: 1.month.ago, salary: 1000000, contact_info: "ООО Рога и копыта")
 		expect(Vacancy.active.count).to eq(1)
 	end
+  
+  it "should delete abilities links on destroy" do
+    a=Ability.create(name: "Ability")
+    v=Vacancy.create(title: "Тестовая вакансия", added_at: Time.now, expires_at: 1.month.ago, salary: 1000000, contact_info: "ООО Рога и копыта",abilities: [a])
+		expect(VacancyAbility.count).to eq(1)
+    v.destroy
+		expect(VacancyAbility.count).to eq(0)
+		expect(Ability.count).to eq(1)
+  end
  
 end

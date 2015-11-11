@@ -73,6 +73,15 @@ RSpec.describe Candidate, :type => :model do
 		expect(Candidate.active.count).to eq(1)
 
 	end
+  
+  it "should delete abilities links on destroy" do
+    a=Ability.create(name: "Ability")
+    c=Candidate.create(name: "Пупкин Иван Васильевич", is_active: true, salary: 1000000, contact_info: "test@test.ru",abilities: [a])
+		expect(CandidateAbility.count).to eq(1)
+    c.destroy
+		expect(CandidateAbility.count).to eq(0)
+		expect(Ability.count).to eq(1)
+  end
 
 
 end
