@@ -17,7 +17,6 @@
 //= require jquery.turbolinks
 //= require bootstrap
 //= require twitter/typeahead
-//= require bootstrap-tagsinput
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/ru-RU
 //= require_tree .
