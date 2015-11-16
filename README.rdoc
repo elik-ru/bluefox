@@ -8,6 +8,6 @@ To run at localhost:
   bundle exec rake db:migrate db:seed
   bundle exec rails s
 
-Go to http://localhost:3002/
+Go to http://localhost:3002
 
-Demosite is at http://bluefox.dev.elik.ru/
+Demosite is at http://bluefox.dev.elik.ru
