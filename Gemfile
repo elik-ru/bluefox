@@ -60,9 +60,6 @@ gem 'capistrano-passenger', group: :development
 gem 'capistrano-bundler', group: :development
 gem 'capistrano-rbenv', group: :development
 
-
-gem 'angularjs-rails'
-gem 'angular-ui-bootstrap-rails'
 gem 'bootstrap-sass', '3.2.0.2'
 gem 'faker'
 gem 'jquery-turbolinks'

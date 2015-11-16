@@ -16,8 +16,6 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require bootstrap
-//= require angular
-//= require angular-ui-bootstrap
 //= require twitter/typeahead
 //= require bootstrap-tagsinput
 //= require bootstrap-wysihtml5
