@@ -8,7 +8,7 @@
   <%= bform_text "Контакты"   , @candidate , :contact_info , f %>
   <%= bform_text "Пожелания по зарплате"   , @candidate , :salary , f %>
   <%= bform_checkbox "Ищет работу" , @candidate , :is_active , f %>
-  <%= bform_multiselect "Навыки"   , @candidate , :ability_names , f , options_for_select(@candidate.abilities.map{|a| [a.name,a.name]}) %>
+  <%= bform_multiselect "Навыки"   , @candidate , :ability_names , f , options_for_select(@candidate.abilities.map{|a| [a.name,a.name]}) , class: "ability_select" %>
 
 
   <%= bform_static do %>
@@ -18,31 +18,3 @@
 <% end %>
 
 </div></div>
-
-<script>
-$(function(){
-  var abilities = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: {
-      url: '/abilities.json?'+Math.random(),
-      filter: function(list) {
-        return $.map(list, function(ab) {
-          return { name: ab.name }; });
-      }
-    }
-  });
-  abilities.initialize();
-
-  var elt = $('#candidate_ability_names');
-  elt.tagsinput({
-    confirmKeys: [9, 10, 13, 44, 188],
-    typeaheadjs: {
-      name: 'abilities',
-      displayKey: 'name',
-      valueKey: 'name',
-      source: abilities.ttAdapter()
-    }
-  });
-})
-</script>

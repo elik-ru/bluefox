@@ -30,4 +30,30 @@ $(function(){
   $('.wysihtml5').each(function(i, elem) {
     $(elem).wysihtml5();
   });
+  
+  $('.ability_select').each(function(index){
+    var abilities = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      prefetch: {
+        url: '/abilities.json?'+Math.random(),
+        filter: function(list) {
+          return $.map(list, function(ab) {
+            return { name: ab.name }; });
+        }
+      }
+    });
+    abilities.initialize();
+
+    $(this).tagsinput({
+      confirmKeys: [9, 10, 13, 44, 188],
+      typeaheadjs: {
+        name: 'abilities',
+        displayKey: 'name',
+        valueKey: 'name',
+        source: abilities.ttAdapter()
+      }
+    });
+  })
+  
 })
