@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *  require_tree .
  *= require_self
  *= require bootstrap-typeahead-rails
  *= require jquery-ui
@@ -19,6 +19,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "plugins/paginator3000.scss";
 
 .bootstrap-tagsinput{
   width: 100%;
