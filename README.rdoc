@@ -9,3 +9,5 @@ To run at localhost:
   bundle exec rails s
 
 Go to http://localhost:3002/
+
+Demosite is at http://bluefox.dev.elik.ru/
