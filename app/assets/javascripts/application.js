@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require jquery.turbolinks
 //= require bootstrap
+//= require kaminari-bootstrap-3000
 //= require twitter/typeahead
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/ru-RU

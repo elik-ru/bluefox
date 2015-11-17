@@ -148,25 +148,6 @@ module ApplicationHelper
     raw "<span class='glyphicon glyphicon-#{icon}'></span>"
   end
   
-  def paginate3000 object
-    raw %Q(<div class="paginator_totals panel panel-default">
-    <div class="panel-body text-right">
-    	<div class="items">#{object.total_count} #{Russian.p(object.total_count,"запись","записи","записей")}</div>
-    	<div class="pages">#{object.total_pages} #{Russian.p(object.total_pages,"страница","страницы","страниц")}</div>
-    </div>
-    </div>) +
-    paginate(object, :theme => '3000')
-  end
-
-  def paginate3000stats object
-    raw %Q(<div class="paginator_totals panel panel-default">
-    <div class="panel-body text-right">
-    	<div class="items">#{object.total_count} #{Russian.p(object.total_count,"запись","записи","записей")}</div>
-    	<div class="pages">#{object.total_pages} #{Russian.p(object.total_pages,"страница","страницы","страниц")}</div>
-    </div>
-    </div>)
-  end
-  
   def tabulate number
     number_to_currency(number, unit: "", separator: ",", delimiter: " ")
   end
